@@ -2,16 +2,18 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 
-type Data = Record<
-  "tipo" | "date" | "cds", {
-      credito: boolean;
-      contado: boolean;
-    } | Date | string
->;
+interface Datos {
+  tipo: {
+    credito: boolean;
+    contado: boolean;
+  };
+  date: Date;
+  cds: string;
+}
 
 const Factura: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
-  const [datosFactura, setDatosFactura] = useState<Data>({
+  const [datosFactura, setDatosFactura] = useState<Datos>({
     tipo: {
       credito: true,
       contado: false,
@@ -34,7 +36,7 @@ const Factura: React.FC = () => {
             type="radio"
             value="credito"
             name="default-radio"
-            checked={datosFactura.tipo.credito ?? false}
+            checked={datosFactura.tipo.credito}
             className="w-4 h-4 bg-gray-100 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800  dark:bg-gray-700 "
             onChange={() =>
               setDatosFactura({
@@ -51,7 +53,7 @@ const Factura: React.FC = () => {
           <input
             type="radio"
             value="contado"
-            checked={datosFactura.tipo.contado ?? false}
+            checked={datosFactura.tipo.contado}
             name="default-radio"
             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800  dark:bg-gray-700 "
             onChange={() =>
