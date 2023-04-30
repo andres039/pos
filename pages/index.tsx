@@ -13,7 +13,7 @@ export default function Home() {
       <Estacion/>
       <Total/>
       </section>
-      <section>
+      <section className="mx-4">
 <Explicacion/>
       </section>
     </main>
