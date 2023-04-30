@@ -16,9 +16,9 @@ const Total = () => {
   return (
     <div className="mt-4 grid grid-cols-1 sm:grid-cols-4 gap-4 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-4">
       {fields.map((field) => (
-        <div>
+        <div key="field.title">
           <h4 className="text-gray-500 font-bold text-md">{field.title}</h4>
-          <input disabled placeholder="0" className="border max-w-full" ></input>
+          <input  disabled placeholder="0" className="border max-w-full" ></input>
         </div>
       ))}
       <button className="w-full whitespace-nowrap bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
